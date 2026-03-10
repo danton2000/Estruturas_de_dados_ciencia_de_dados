@@ -28,10 +28,10 @@ matriz = np.array(
 print(matriz)
 
 print("mostrar o elemento da linha 2, coluna 1")
-print(matriz[2, 1:-1])
+print(matriz[2, 1])
 
 print("mostrar a segunda linha")
-print(matriz[-1])
+print(matriz[1])
 
 print("mostrar a terceira coluna")
-print(matriz[:, -1])
+print(matriz[0:3, 2])
