@@ -153,5 +153,143 @@ print("a terceira coluna inteira")
 print(matrix[:, -1:])
 
 print("a submatriz formada pelas 2 primeiras linhas")
+print(matrix[:2, :])
 
 print("e 2 últimas colunas")
+print(matrix[:3, -2:])
+
+# 5. Alterando valores
+# Crie uma matriz 3x3 com números de 1 até 9. Depois:
+# a) troque o valor central por 99
+# b) troque todos os valores da primeira linha por 0
+# c) mostre a matriz final
+
+matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+print("a) troque o valor central por 99")
+matrix[1,1] = 99
+print(matrix)
+
+print("b) troque todos os valores da primeira linha por 0")
+matrix[0] = 0
+print(matrix)
+
+print("c) mostre a matriz final")
+print(matrix)
+
+# 6. Operações com arrays
+# Crie os arrays:
+# a = [1, 2, 3, 4]
+# b = [10, 20, 30, 40]
+
+print("Transforme-os em arrays NumPy e mostre:")
+a = np.array([1, 2, 3, 4])
+
+b = np.array([10, 20, 30, 40])
+
+print(a)
+print(b)
+
+print("A soma entre eles")
+soma_array = a + b
+print(soma_array)
+
+print("A subtração entre eles") 
+subtracao_array = a - b
+print(subtracao_array)
+
+print("A multiplicação elemento a elemento e o resultado de multiplicar o array 'a' por 2.")
+multiplicacao_array = (a * 2) * b
+print(multiplicacao_array)
+
+# 7. Funções numéricas básicas
+# Crie o array:
+# [12, 18, 25, 30, 7]
+array = np.array([12, 18, 25, 30, 7])
+# Calcule e mostre: a soma dos valores, a média, o maior valor e o menor valor.
+print("a soma dos valores")
+print(np.sum(array))
+
+print("a média")
+print(np.mean(array))
+
+print("o maior valor")
+print(np.max(array))
+
+print("o menor valor")
+print(np.min(array))
+
+# 8. Médias em matriz com axis
+# Considere a matriz de notas:
+# [[7.0, 8.0, 6.5],
+#  [9.0, 7.5, 8.0],
+#  [5.5, 6.0, 7.0]]
+# Calcule: a média geral da matriz, a média de cada aluno e a média de cada prova.
+
+notas = np.array([
+    [7.0, 8.0, 6.5],
+    [9.0, 7.5, 8.0],
+    [5.5, 6.0, 7.0]
+])
+
+print("a média geral da matriz")
+print(np.mean(notas))
+
+print("a média de cada aluno")
+print(np.mean(notas, axis=1))
+
+print("a média de cada prova")
+print(np.mean(notas, axis=0))
+
+# 9. Construindo matriz com input
+# Peça ao usuário 6 números e armazene todos em um array NumPy. Depois, reorganize esse array em uma matriz 2x3 e mostre na tela.
+
+lista = []
+for i in range(6):
+    num = float(input(f"Digite o {i+1}º número: "))
+    lista.append(num)
+
+array = np.array(lista)
+matrix = array.reshape(2, 3)
+print("Matriz 2x3:")
+print(matrix)
+
+# 10. Desafio — Lugares no ônibus
+# Um ônibus foi representado por uma matriz, em que 0 representa lugar vazio e 1 representa lugar ocupado. Considere a matriz:
+# [[1, 0, 1, 1],
+#  [0, 0, 1, 0],
+#  [1, 1, 1, 0]]
+matrix_onibus = np.array([
+    [1, 0, 1, 1],
+    [0, 0, 1, 0],
+    [1, 1, 1, 0]
+])
+
+# Faça um programa que:
+print("a) mostre quantos lugares estão vazios no total")
+print(np.sum(matrix_onibus == 0))
+
+print("b) mostre quantos lugares vazios existem em cada linha")
+print(np.sum(matrix_onibus == 0, axis=1))
+
+print("c) mostre quantos lugares ocupados existem no ônibus")
+print(np.sum(matrix_onibus == 1))
+
+print("d) informe se o ônibus está lotado ou não (Regra: lotado apenas se não houver nenhum 0)")
+if np.sum(matrix_onibus == 0) == 0:
+    print("O ônibus está lotado.")
+else:
+    print("O ônibus não está lotado.")
+
+print("e) peça ao usuário uma linha e uma coluna e verifique se o assento escolhido está vazio ou ocupado")
+linha = int(input("Digite a linha: ")) - 1
+coluna = int(input("Digite a coluna: ")) - 1
+
+if matrix_onibus[linha, coluna] == 0:
+    print("O assento escolhido está vazio.")
+else:
+    print("O assento escolhido está ocupado.")
