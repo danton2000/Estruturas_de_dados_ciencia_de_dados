@@ -77,7 +77,6 @@ print(soma_ate_n(5))
 # Exemplo:
 # print( soma_lista([ 3, 5, 2, 4], 4))
 
-
 # Saída esperada:
 # 14
 
