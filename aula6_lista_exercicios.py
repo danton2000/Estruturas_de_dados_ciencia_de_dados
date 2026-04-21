@@ -1,5 +1,7 @@
 # Lista de exercícios
 
+# Funções recursivas ajudam na redução de repetição de codigos...
+
 # Questão 1
 def primeiro( lista):
     return lista[0]
@@ -81,7 +83,7 @@ print(soma_ate_n(5))
 # 14
 
 def soma_lista(lista, n):
-    if n <= 0:
+    if n <= 0: # Caso base
         return 0
     return lista[n - 1] + soma_lista(lista, n - 1)
 
@@ -99,9 +101,11 @@ print(soma_lista([3, 5, 2, 4], 4))
 def inverte_texto(texto):
     if len(texto) == 0:
         return ""
-    return texto[-1] + inverte_texto(texto[:-1])
+    return texto[-1] + inverte_texto(texto[0:-1])
 
 print(inverte_texto("python"))
+
+print("python"[0:-1])
 
 # Verificar palíndromo
 # Escreva uma função recursiva chamada eh_palindromo(texto) que retorne True se a palavra for um palíndromo e False caso contrário.
@@ -119,9 +123,12 @@ def eh_palindromo(texto):
         return True
     if texto[0] != texto[-1]:
         return False
+    # Vai cortando a string
     return eh_palindromo(texto[1:-1])
 
-print(eh_palindromo("arara"))
+print("abra"[1:-1])
+
+print(eh_palindromo("abra"))
 print(eh_palindromo("python"))
 
 # Pilha da soma
@@ -141,7 +148,7 @@ def soma_ate_n( n):
 # Encontrando o erro lógico
 # O código abaixo tenta calcular o fatorial, mas está incorreto. Explique o erro.
 
-def fatorial( n):
+def fatorial(n):
      if n == 0:
          return 0
      else:
