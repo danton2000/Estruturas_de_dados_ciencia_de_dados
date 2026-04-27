@@ -6,15 +6,10 @@ Explicação leiga:
   na posição correta (começando da esquerda). Repetindo esse processo, a
   lista fica ordenada.
 """
-
-import time
-
-
 class Node:
     def __init__(self, numero):
         self.valor = numero
         self.next = None
-
 
 class Lista:
     def __init__(self):
@@ -42,29 +37,6 @@ class Lista:
             while no_atual is not None:
                 print(f"Valor: {no_atual.valor}")
                 no_atual = no_atual.next
-
-    def ordena_bubble(self):
-        """Mantive a versão de bubble para referência, com comentário."""
-        if self.head is None or self.head.next is None:
-            return
-
-        fim = None
-
-        while fim != self.head:
-            atual = self.head
-            trocou = False
-
-            while atual.next != fim:
-                proximo = atual.next
-                if atual.valor > proximo.valor:
-                    atual.valor, proximo.valor = proximo.valor, atual.valor
-                    trocou = True
-                atual = atual.next
-
-            fim = atual
-
-            if not trocou:
-                break
 
     def ordena_selection(self):
         """Selection Sort que troca apenas os valores dos nós (simples)."""
