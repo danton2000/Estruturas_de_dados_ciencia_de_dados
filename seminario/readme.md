@@ -16,15 +16,15 @@
 
 # Formato esperado da apresentação
 ## A apresentação deve ser organizada de forma didática. Sugestão de estrutura:
-Slide 1: título do algoritmo e nomes dos integrantes
-Slide 2: ideia geral
-Slide 3: passo a passo com exemplo
-Slide 4: implementação em Python
-Slide 5: explicação do código
-Slide 6: complexidade
-Slide 7: vantagens e limitações
-Slide 8: conclusão
-O grupo pode adaptar essa estrutura, desde que todos os itens obrigatórios sejam contemplados.
+1. Slide 1: título do algoritmo e nomes dos integrantes
+2. Slide 2: ideia geral
+3. Slide 3: passo a passo com exemplo
+4. Slide 4: implementação em Python
+5. Slide 5: explicação do código
+6. Slide 6: complexidade
+7. Slide 7: vantagens e limitações
+8. Slide 8: conclusão
+> O grupo pode adaptar essa estrutura, desde que todos os itens obrigatórios sejam contemplados.
 
 # Entregas
 ## Cada grupo deverá entregar:
