@@ -9,50 +9,69 @@ Explicação leiga:
 class Node:
     def __init__(self, numero):
         self.valor = numero
-        self.next = None
+        self.proximo = None
 
 class Lista:
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.inicio = None
+        self.fim = None
 
     def add_valor(self, valor):
         """Adiciona um nó ao final."""
         novo_no = Node(valor)
 
-        if self.head is None:
-            self.head = novo_no
-            self.tail = novo_no
+        if self.inicio is None:
+            self.inicio = novo_no
+            self.fim = novo_no
         else:
-            self.tail.next = novo_no
-            self.tail = novo_no
+            self.fim.proximo = novo_no
+            self.fim = novo_no
 
 
     def imprime_lista(self):
         """Imprime todos os valores da lista do início ao fim."""
-        if self.head is None:
+        if self.inicio is None:
             print("A lista está vazia.")
         else:
-            no_atual = self.head
+            no_atual = self.inicio
             while no_atual is not None:
                 print(f"Valor: {no_atual.valor}")
-                no_atual = no_atual.next
+                no_atual = no_atual.proximo
 
-    def ordena_selection(self):
-        """Selection Sort que troca apenas os valores dos nós (simples)."""
-        atual = self.head
-        while atual is not None:
-            # encontra o menor valor a partir de 'atual'
-            menor = atual
-            proximo = atual.next
-            while proximo is not None:
-                if proximo.valor < menor.valor:
-                    menor = proximo
-                proximo = proximo.next
-            # troca valores se necessário
-            if menor != atual:
-                atual.valor, menor.valor = menor.valor, atual.valor
-            atual = atual.next
+    def selection_sort(self):
+        """
+        Ordena a lista encadeada em ordem crescente usando Selection Sort.
+
+        Estratégia (versão simples que troca valores dentro dos nós):
+        - Para cada posição da lista (nó `i`), encontra o nó com o menor
+          valor entre `i` e o final.
+        - Troca o valor do nó `i` com o valor do nó que contém o mínimo.
+
+        Observações:
+        - Mantemos a simplicidade trocando apenas os valores dos nós em vez
+          de reencadear ponteiros.
+        - Complexidade: O(n^2) no pior caso e no caso médio.
+        """
+        if self.inicio is None:
+            return
+
+        i = self.inicio
+        # 'i' representa a posição atual que vamos preencher com o menor valor
+        while i:
+            # Encontrar o nó com o menor valor a partir de i
+            menor = i
+            j = i.proximo
+            while j:
+                if j.valor < menor.valor:
+                    menor = j
+                j = j.proximo
+
+            # Se menor for diferente de i, troca os valores
+            if menor is not i:
+                i.valor, menor.valor = menor.valor, i.valor
+
+            # Avança para a próxima posição
+            i = i.proximo
 
 
 if __name__ == "__main__":
@@ -64,6 +83,6 @@ if __name__ == "__main__":
     print("Lista Desordenada.")
     lista.imprime_lista()
 
-    lista.ordena_selection()
+    lista.selection_sort()
     print("Lista Ordenada.")
     lista.imprime_lista()
