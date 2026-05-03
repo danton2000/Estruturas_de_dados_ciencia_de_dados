@@ -1,4 +1,3 @@
-```markdown
 # 📊 Selection Sort (Ordenação por Seleção)
 
 ## 👥 Integrantes
@@ -28,9 +27,7 @@ Ele funciona selecionando o menor elemento da parte não ordenada da lista e col
 
 Lista inicial:
 ```
-
 [5, 3, 8, 1, 2]
-
 ```
 
 ### 1ª rodada:
@@ -38,9 +35,7 @@ Lista inicial:
 - Troca com 5
 
 ```
-
 [1, 3, 8, 5, 2]
-
 ```
 
 ### 2ª rodada:
@@ -48,9 +43,7 @@ Lista inicial:
 - Troca com 3
 
 ```
-
 [1, 2, 8, 5, 3]
-
 ```
 
 ### 3ª rodada:
@@ -58,17 +51,13 @@ Lista inicial:
 - Troca com 8
 
 ```
-
 [1, 2, 3, 5, 8]
-
 ```
 
 ### Resultado final:
 ```
-
 [1, 2, 3, 5, 8]
-
-````
+```
 
 ---
 
@@ -106,24 +95,22 @@ if __name__ == "__main__":
     print(lista)
 
     selection_sort(lista)
-````
+```
 
 ---
 
 ## 🧩 Explicação do Código
 
-* `len(lista)` → obtém o tamanho da lista
-* `for i in range(n)` → percorre cada posição
-* `menor_indice = i` → assume que o menor é o atual
+- `len(lista)` → obtém o tamanho da lista  
+- `for i in range(n)` → percorre cada posição  
+- `menor_indice = i` → assume que o menor é o atual  
 
 ### 🔎 Loop interno:
-
-* `for j in range(i+1, n)` → percorre o restante da lista
-* Compara os valores
-* Atualiza o índice do menor elemento
+- `for j in range(i+1, n)` → percorre o restante da lista  
+- Compara os valores  
+- Atualiza o índice do menor elemento  
 
 ### 🔄 Troca:
-
 ```python
 lista[i], lista[menor_indice] = lista[menor_indice], lista[i]
 ```
@@ -134,11 +121,11 @@ lista[i], lista[menor_indice] = lista[menor_indice], lista[i]
 
 ## ⏱️ Complexidade de Tempo
 
-| Caso        | Complexidade |
-| ----------- | ------------ |
-| Melhor caso | O(n²)        |
-| Caso médio  | O(n²)        |
-| Pior caso   | O(n²)        |
+| Caso          | Complexidade |
+|--------------|-------------|
+| Melhor caso  | O(n²)       |
+| Caso médio   | O(n²)       |
+| Pior caso    | O(n²)       |
 
 👉 O algoritmo sempre percorre toda a lista, independente da ordem inicial.
 
@@ -146,26 +133,26 @@ lista[i], lista[menor_indice] = lista[menor_indice], lista[i]
 
 ## ✅ Vantagens
 
-* Simples de entender
-* Fácil de implementar
-* Poucas trocas de elementos
-* Baixo uso de memória
+- Simples de entender  
+- Fácil de implementar  
+- Poucas trocas de elementos  
+- Baixo uso de memória  
 
 ---
 
 ## ❌ Limitações
 
-* Ineficiente para listas grandes
-* Complexidade alta (O(n²))
-* Não aproveita lista já ordenada
+- Ineficiente para listas grandes  
+- Complexidade alta (O(n²))  
+- Não aproveita lista já ordenada  
 
 ---
 
 ## 🎯 Quando usar
 
-* Para aprendizado de algoritmos
-* Listas pequenas
-* Situações onde o número de trocas precisa ser reduzido
+- Para aprendizado de algoritmos  
+- Listas pequenas  
+- Situações onde o número de trocas precisa ser reduzido  
 
 ---
 
@@ -180,5 +167,3 @@ Apesar de sua facilidade de implementação, ele não é recomendado para grande
 ## 📝 Resumo
 
 O Selection Sort é um algoritmo que ordena uma lista selecionando o menor elemento e colocando-o na posição correta a cada iteração. Ele possui complexidade O(n²) em todos os casos, sendo simples, porém ineficiente para grandes conjuntos de dados.
-
-```
