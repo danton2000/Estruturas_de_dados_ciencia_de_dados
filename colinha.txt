@@ -1,0 +1,227 @@
+# COLINHA — Estrutura de Dados e Algoritmos
+
+#  Big O (Complexidade)
+
+Mostra quantos passos um algoritmo executa conforme os dados aumentam.
+
+| Complexidade | Ideia          |
+| ------------ | -------------- |
+| O(1)         | constante      |
+| O(n)         | percorre lista |
+| O(log n)     | divide no meio |
+| O(n²)        | dois loops     |
+
+### Exemplos
+
+```python id="hm8muu"
+lista[0]        # O(1)
+
+for i in lista: # O(n)
+    print(i)
+
+for i in lista: # O(n²)
+    for j in lista:
+        print(i, j)
+```
+
+Ignoramos constantes:
+
+```python id="kns4a1"
+2n + 5 → O(n)
+```
+
+---
+
+# Pilha (Stack)
+
+LIFO → Último que entra, primeiro que sai.
+
+Exemplos:
+
+* Pilha de pratos
+* Ctrl + Z
+* Histórico navegador
+
+```python id="wdkv2m"
+pilha = []
+
+pilha.append(10) # push
+pilha.pop()      # pop
+```
+
+---
+
+# Recursividade
+
+Função chama ela mesma.
+
+Precisa:
+
+* caso base
+* passo recursivo
+
+```python id="rjtr1n"
+def contar(n):
+    if n == 0:
+        return
+
+    print(n)
+    contar(n - 1)
+```
+
+---
+
+# Busca Linear
+
+Percorre elemento por elemento.
+
+```python id="yggh03"
+lista = [3,7,2]
+
+for i in lista:
+    if i == 2:
+        print("Encontrou")
+```
+
+Complexidade:
+#️O(n)
+
+Lista pequena/desordenada
+
+---
+
+# Busca Binária
+
+Divide a lista no meio.
+
+Precisa lista ordenada.
+
+Exemplo:
+
+```python id="8a5s1n"
+[1,2,3,4,5,6,7]
+```
+
+Busca 5:
+
+* meio = 4
+* vai direita
+
+Complexidade:
+#️O(log n)
+
+---
+
+# Tabela Hash
+
+Usa:
+
+* chave
+* índice
+* valor
+
+Acesso rápido ao dado.
+
+```python id="c6ocdn"
+dados = {
+    "nome": "Lucas"
+}
+
+print(dados["nome"])
+```
+
+Colisão:
+Duas chaves → mesmo índice.
+
+Solução:
+Encadeamento (lista dentro do índice).
+
+---
+
+# Métodos de Ordenação
+
+## Bubble Sort
+
+Troca vizinhos.
+
+```python id="clfr1q"
+[5,3] → [3,5]
+```
+
+O(n²)
+
+---
+
+## Selection Sort
+
+Procura menor valor e troca.
+
+```python id="p0cm9d"
+[5,3,1]
+→ [1,3,5]
+```
+
+O(n²)
+
+---
+
+## Insertion Sort
+
+Insere elemento na posição correta.
+
+```python id="z8i02t"
+[5,3]
+→ [3,5]
+```
+
+O(n²)
+
+---
+
+## Merge Sort
+
+Divide e junta ordenado.
+
+```python id="7o2o25"
+[5,2,8,1]
+→ [1,2,5,8]
+```
+
+O(n log n)
+
+---
+
+## Quick Sort
+
+Usa pivô.
+
+```python id="uljlwm"
+pivô = 5
+
+menores = [2,1]
+maiores = [8]
+```
+
+Média:
+#️O(n log n)
+
+Pior:
+#️O(n²)
+
+---
+
+# RESUMÃO
+
+| Conteúdo  | Ideia                  |
+| --------- | ---------------------- |
+| Big O     | custo algoritmo        |
+| Pilha     | LIFO                   |
+| Recursão  | função chama ela mesma |
+| Linear    | percorre tudo          |
+| Binária   | divide no meio         |
+| Hash      | acesso rápido          |
+| Bubble    | troca vizinhos         |
+| Selection | procura menor          |
+| Insertion | insere ordenado        |
+| Merge     | divide e junta         |
+| Quick     | usa pivô               |
