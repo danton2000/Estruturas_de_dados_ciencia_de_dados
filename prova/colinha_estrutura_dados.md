@@ -4,6 +4,44 @@
 
 # 🧠 Big O (Complexidade)
 
+Resumo do conteúdo:
+
+Big O: mede como o tempo ou espaço do algoritmo cresce com o tamanho da entrada. Ignora constantes e termos de menor ordem.
+
+O(1): constante
+O(n): linear
+O(log n): logarítmica
+O(n²): quadrática
+Pilha (stack): LIFO, último a entrar é o primeiro a sair. Em Python, append() para push e pop() para pop.
+
+Recursividade: função chama ela mesma. Precisa de caso base e passo recursivo.
+
+Busca linear: percorre cada elemento até encontrar. Complexidade O(n). Bom para listas pequenas ou não ordenadas.
+
+Busca binária: divide a lista ordenada ao meio e descarta metade a cada passo. Complexidade O(log n). Exige lista ordenada.
+
+Tabela hash (dicionário): associa chave a valor por meio de hash, permite acesso rápido. Colisões ocorrem quando duas chaves geram mesmo índice; podem ser tratadas com encadeamento (lista no mesmo índice).
+
+Ordenação:
+
+Bubble Sort: compara e troca vizinhos. O(n²).
+Selection Sort: escolhe menor e troca. O(n²).
+Insertion Sort: insere elementos na posição correta. O(n²).
+Merge Sort: divide e junta ordenado. O(n log n).
+Quick Sort: escolhe pivô e particiona menores/maiores. Média O(n log n), pior O(n²).
+Boas práticas para analisar complexidade:
+
+foque em repetições
+verifique complexidade de funções/métodos usados
+considere o termo de maior ordem
+Exemplos de análise:
+
+t(n) = 4 + 3n => O(n)
+t(n) = 2 => O(1)
+algoritmo com laço até encontrar elemento: melhor caso O(1), pior caso O(n)
+laços aninhados: O(n²)
+soma de O(n) + O(n log n) => O(n log n)
+
 📌 Mostra quantos passos um algoritmo executa conforme os dados aumentam.
 
 👉 Ignoramos constantes:
@@ -316,3 +354,55 @@ maiores:
 | Insertion | insere ordenado |
 | Merge | divide e junta |
 | Quick | usa pivô |
+
+class TabelaHash:
+
+    def __init__(self, tamanho):
+
+        self.tamanho = tamanho
+
+        self.tabela = []
+
+        for i in range(self.tamanho):
+
+            self.tabela.append([])
+
+    def indice(self, chave):
+
+        print(len(chave) % self.tamanho) 
+    
+    def inserir(self, chave, valor):
+
+        ind = self.indice(chave, len(self.tabela))
+
+        print(ind)
+
+    def buscar(self, chave):
+
+        ind = self.indice(chave, len(self.tabela))
+
+        for item in self.tabela[ind]:
+
+            if item[0] == chave:
+
+                return item[1]
+        
+        return None
+    
+    def listar(self):
+
+        print(self.tabela)
+    
+aluno = TabelaHash(5)
+
+aluno.inserir("Danton", "C")
+
+aluno.inserir("Gabriela", "A")
+
+aluno.inserir("Donizete", "A")
+
+aluno.inserir("Enzo", "B")
+
+aluno.inserir("Larissa", "B")
+
+aluno.listar()
