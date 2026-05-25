@@ -60,3 +60,9 @@ def peek(pilha):
         return pilha[-1]
     else:
         return None
+    
+def is_empty(pilha):
+    return len(pilha) == 0
+
+def size(pilha):
+    return len(pilha)
