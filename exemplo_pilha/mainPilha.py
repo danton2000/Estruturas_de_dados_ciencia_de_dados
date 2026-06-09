@@ -1,4 +1,4 @@
-from Pilha import Pilha
+from exemplo_pilha.Pilha import Pilha
 
 print(Pilha.__doc__)
 
