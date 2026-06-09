@@ -13,7 +13,7 @@ class ListaEncadeada:
         # O size é o número de elementos na lista, inicialmente é 0 porque a lista está vazia
         self._size = 0
 
-    # Função para adicionar um elemento no final da lista
+    # Metodo para adicionar um elemento no final da lista
     def append(self, elemento):
         novo_no = No(elemento)
 
@@ -87,31 +87,47 @@ class ListaEncadeada:
         
         atual.dado = valor
     
+    # O método remove é usado para remover um elemento específico da lista encadeada
+    # permitindo que a função remove(elemento) seja chamada para eliminar o primeiro nó que contém o valor especificado.
     def remove(self, elemento):
 
+        # Verifica se a lista está vazia, se estiver, lança um erro indicando que a lista encadeada está vazia.
         if self.head is None:
             raise ValueError("A lista encadeada está vazia.")
         
+        # Verifica se o elemento a ser removido é o primeiro nó da lista (head). Se for, atualiza o head para o próximo nó e decrementa o tamanho da lista.
         if self.head.dado == elemento:
             
             self.head = self.head.proximo
             
             self._size -= 1
-            
+
+        # Se o elemento a ser removido não for o primeiro nó, percorre a lista para encontrar o nó que contém o elemento.    
         else:
             anterior = self.head
 
             atual = anterior.proximo
 
+            # Percorre a lista até encontrar o elemento ou chegar ao final da lista. 
+            # Se encontrar o elemento, atualiza a referência do nó anterior para pular o 
+            # nó atual e decrementa o tamanho da lista. Se chegar ao final da lista sem encontrar o elemento, 
+            # lança um erro indicando que o elemento não foi encontrado na lista encadeada.
             while atual:
 
+                # Verifica se o dado do nó atual é igual ao elemento a ser removido. 
+                # Se for, atualiza a referência do nó anterior para pular o nó atual, efetivamente removendo-o da lista. 
+                # Em seguida, decrementa o tamanho da lista e retorna True para indicar que a remoção foi bem-sucedida.
                 if atual.dado == elemento:
                     anterior.proximo = atual.proximo
 
                     atual.proximo = None
 
                     self._size -= 1
+
+                    return True
                 
                 anterior = atual
 
                 atual = atual.proximo
+            
+            raise ValueError("Elemento não encontrado na lista encadeada.")

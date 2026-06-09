@@ -14,8 +14,20 @@ print(len(lista))
 
 print(lista[0])
 
-lista[4] = "Daniel"
+lista[2] = "Daniel"
 
 print(lista[0])
+
+print(lista)
+
+lista.remove("Maria")
+
+print(lista)
+
+lista.append("Cristino Ronaldo")
+
+print(lista)
+
+lista.remove("Danton")
 
 print(lista)
