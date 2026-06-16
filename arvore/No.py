@@ -1,6 +1,6 @@
 class No:
 
-    def __init__(self, dado):
+    def __init__(self, dado = None):
         
         self.dado = dado
 
