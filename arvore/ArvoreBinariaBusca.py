@@ -76,3 +76,107 @@ class ArvoreBinariaBusca:
 
         # Continua a travessia pré-ordem: primeiro a subárvore esquerda, depois a direita
         self._pre_order(no.direita, valores)
+
+    def em_order(self):
+
+        valores = []
+
+        self._em_order(self.raiz, valores)
+
+        return valores
+    
+    # Recursividade, impilha e desempilha, para percorrer a árvore em ordem (esquerda, raiz, direita)
+    
+    def _em_order(self, no, valores):
+
+        if no is None:
+            # Caso base: nó vazio, retorna
+            return
+        
+        # Continua a travessia em-ordem: primeiro a subárvore esquerda
+        self._em_order(no.esquerda, valores)
+
+        # Processa o nó atual (adiciona seu valor à lista de valores)
+        valores.append(no.dado)  # Processa o nó atual
+
+        # Continua a travessia em-ordem: depois a subárvore direita
+        self._em_order(no.direita, valores)
+
+    def pos_order(self):
+
+        valores = []
+
+        self._pos_order(self.raiz, valores)
+
+        return valores
+    
+    def _pos_order(self, no, valores):
+        if no is None:
+            # Caso base: nó vazio, retorna
+            return
+        
+        # Continua a travessia pós-ordem: primeiro a subárvore esquerda, depois a direita
+        self._pos_order(no.esquerda, valores)
+
+        # Continua a travessia pós-ordem: primeiro a subárvore esquerda, depois a direita
+        self._pos_order(no.direita, valores)
+
+        # Processa o nó atual (adiciona seu valor à lista de valores)
+        valores.append(no.dado)  # Processa o nó atual
+
+    def minimo(self):
+
+        if self.is_empty():
+            return None
+        
+        atual = self.raiz
+
+        while atual.esquerda is not None:
+
+            atual = atual.esquerda
+
+        return atual.dado
+    
+    def maximo(self):
+
+        if self.is_empty():
+            return None
+        
+        atual = self.raiz
+
+        while atual.direita is not None:
+
+            atual = atual.direita
+
+        return atual.dado
+    
+    def contar_nos(self):
+
+        return self._contar_nos(self.raiz)
+    
+    def _contar_nos(self, no):
+
+        if no is None:
+
+            return 0
+
+        return(
+            1 + self._contar_nos(no.esquerda) + self._contar_nos(no.direita)
+        )
+    
+    def contar_folhas(self):
+
+        return self._contar_folhas(self.raiz)
+    
+    def _contar_folhas(self, no):
+
+        if no in None:
+            return 0
+        
+        if no.esquerda is None and no.direita is None:
+
+            return 1
+        
+        return (
+            self._contar_folhas(no.esquerda) + self._contar_folhas(no.direita)
+        )
