@@ -170,7 +170,7 @@ class ArvoreBinariaBusca:
     
     def _contar_folhas(self, no):
 
-        if no in None:
+        if no is None:
             return 0
         
         if no.esquerda is None and no.direita is None:
@@ -180,3 +180,53 @@ class ArvoreBinariaBusca:
         return (
             self._contar_folhas(no.esquerda) + self._contar_folhas(no.direita)
         )
+
+    def remove(self, valor):
+
+        self.raiz, removido = self._remove(self.raiz, valor)
+
+    def _remove(self, no, valor):
+        
+        if no is None:
+
+            return None, False
+        
+        if valor < no.dado:
+
+            no.esquerda, removido = self._remove(no.esquerda, valor)
+
+            return no, removido
+        
+        if valor > no.dado:
+
+            no.direita, removido = self._remove(no.direita, valor)
+
+            return no, removido
+        
+        if no.esquerda is None and no.direita is None:
+
+            return None, True
+        
+        if no.esquerda is None:
+            
+            return no.direita, True
+
+        if no.direita is None:
+            
+            return no.esquerda, True
+        
+        sucessor = self._minimo_no(no.direita)
+        
+        no.dado = sucessor.dado
+
+        no.direita, _ = self._remove(no.direita, sucessor.valor)
+
+    def _minimo_no(self, no):
+
+        atual = no
+
+        while atual.esquerda is not None:
+
+            atual = atual.esquerda
+
+        return atual
