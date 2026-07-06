@@ -230,3 +230,81 @@ class ArvoreBinariaBusca:
             atual = atual.esquerda
 
         return atual
+
+    def contains(self, valor):
+        atual = self.raiz
+
+        while atual is not None:
+            if valor == atual.dado:
+                return True
+
+            if valor < atual.dado:
+                atual = atual.esquerda
+            else:
+                atual = atual.direita
+
+        return False
+    
+    def sum_values(self):
+        return self._sum_values(self.raiz)
+
+    def _sum_values(self, no):
+        if no is None:
+            return 0
+
+        return no.dado + self._sum_values(no.esquerda) + self._sum_values(no.direita)
+    
+    def sum_even_values(self):
+        return self._sum_even_values(self.raiz)
+
+    def _sum_even_values(self, no):
+        if no is None:
+            return 0
+
+        total = self._sum_even_values(no.esquerda) + self._sum_even_values(no.direita)
+
+        if no.dado % 2 == 0:
+            total += no.dado
+
+        return total
+    
+    def remove_min(self):
+        if self.is_empty():
+            return None
+
+        valor, self.raiz = self._remove_min(self.raiz)
+        return valor
+
+    def _remove_min(self, no):
+        if no is None:
+            return None, None
+
+        if no.esquerda is None:
+            return no.dado, no.direita
+
+        valor, no.esquerda = self._remove_min(no.esquerda)
+        return valor, no
+    
+    def is_balanced(self):
+        return self._is_balanced(self.raiz)
+
+    def _is_balanced(self, no):
+        if no is None:
+            return True
+
+        esquerda = self._altura(no.esquerda)
+        direita = self._altura(no.direita)
+
+        if abs(esquerda - direita) > 1:
+            return False
+
+        return self._is_balanced(no.esquerda) and self._is_balanced(no.direita)
+
+    def _altura(self, no):
+        if no is None:
+            return 0
+
+        return 1 + max(self._altura(no.esquerda), self._altura(no.direita))
+    
+    def altura(self):
+        return self._altura(self.raiz)
